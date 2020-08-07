@@ -1,0 +1,26 @@
+{
+  "name": "figma-plugin-extract-images",
+  "version": "1.0.0",
+  "description": "Collects all images on a file and saves them to a zip file",
+  "main": "code.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --watch"
+  },
+  "author": "Martin Bravo <m@designsystems.international>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "rollup": "^2.23.0"
+  },
+  "dependencies": {
+    "client-zip": "^1.1.1",
+    "file-type": "^14.7.0",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "slugify": "^1.4.5",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
