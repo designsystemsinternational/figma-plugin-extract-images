@@ -1,6 +1,6 @@
 # Extract images
 
-#### A Figma Plugin to find all images on a file and extract the originals to a zip file.
+#### A Figma Plugin to find all images in a file and extract the originals to a zip file.
 
 This plugin goes through the whole file finding images, and puts them on a zip file for download.
 
