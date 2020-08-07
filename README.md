@@ -2,9 +2,11 @@
 
 #### A Figma Plugin to find all images in a file and extract the originals to a zip file.
 
-This plugin goes through the whole file finding images, and puts them on a zip file for download.
+This plugin scans a document for images, and extracts them to a zip file for download.
 
-This is useful when you used many images and don't have easy access to the original images (ie. moodboard, website mockup), and want to extract the original files.
+This is useful when you need to use a document' images outside of figma and it's not easy or possible to find the source files.
+
+I have used it to collect moodboard images, or gather the assets for a website.
 
 ## How to use
 
