@@ -4,6 +4,8 @@ figma.ui.onmessage = (message) => {
   }
 };
 
+figma.showUI(__html__, { visible: true });
+
 const getAllImages = async () => {
   const allRectanglesWithImages = figma.root.findAll((node) => {
     return (
@@ -27,9 +29,6 @@ const getAllImages = async () => {
     );
   }, []);
 
-  console.log('Found %s images...', allImages.length);
-
-  figma.showUI(__html__, { visible: true });
   figma.ui.postMessage({ filename: figma.root.name });
   for (let i = 0; i < allImages.length; i++) {
     const image = allImages[i];
@@ -40,6 +39,7 @@ const getAllImages = async () => {
   figma.ui.postMessage({ done: true });
 };
 
+// code utils
 const uniqueName = (list, name, i = 1) => {
   const versioned = name + `-${i}`;
   if (list.includes((a) => a.name == name)) {
@@ -52,10 +52,13 @@ const uniqueName = (list, name, i = 1) => {
     return name;
   }
 };
-
+const TYPES = ['DOCUMENT', 'PAGE', 'FRAME'];
 const getPath = (obj, path = []) => {
   if (obj.parent) {
-    path.unshift(obj.parent.name);
+    if (TYPES.includes(obj.parent.type)) {
+      path.unshift(obj.parent.name);
+    }
+
     return getPath(obj.parent, path);
   } else {
     return path.join('/');

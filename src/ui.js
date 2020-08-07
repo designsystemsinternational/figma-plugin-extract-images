@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import {
+  TypographyStyles,
+  BaseStyles,
+  PrimaryButton,
+  Switch,
+  Type12PosBold,
+  Type12Pos,
+} from 'figma-ui-components';
 
-import { downloadZipFile } from './utils';
-
-const useContent = () => {
-  const [filename, setFilename] = useState('figma');
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    window.onmessage = async (event) => {
-      const message = event.data.pluginMessage;
-      if (!message) return;
-      if (message.filename) {
-        setFilename(message.filename);
-      } else if (message.image) {
-        setImages((images) => images.concat(message.image));
-      } else if (message.done) {
-      }
-    };
-  }, []);
-  return { filename, images };
-};
+import { useContent, downloadZipFile } from './utils';
 
 import css from './ui.css';
 
@@ -30,21 +20,28 @@ const UI = () => {
     await downloadZipFile(content, keepPath);
     window.parent.postMessage({ pluginMessage: { close: true } }, '*');
   };
-  console.log(content);
+
   return (
     <div className={css.root}>
-      <h2>Extract images</h2>
-      <p>Found {content.images.length} images...</p>
-      <button onClick={onDownloadFile}>Download Zip File</button>
+      <TypographyStyles />
+      <BaseStyles />
       <div>
-        <input
-          id="keepPath"
-          type="checkbox"
+        <Type12PosBold>Extract images</Type12PosBold>
+      </div>
+      <div style={{ marginTop: 10 }}>
+        {!content.done && <Type12Pos>Finding images...</Type12Pos>}
+        <Type12Pos>{content.images.length} images found.</Type12Pos>
+      </div>
+      <div style={{ marginTop: 10 }}>
+        <Switch
+          name="Organize files by frames"
           checked={keepPath}
           onChange={() => setKeepPath(!keepPath)}
         />
-        <label htmlFor="keepPath">Keep pages/groups as folders </label>
       </div>
+      <PrimaryButton disabled={!content.done} onClick={onDownloadFile}>
+        Download Zip File
+      </PrimaryButton>
     </div>
   );
 };
