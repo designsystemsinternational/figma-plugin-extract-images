@@ -1,7 +1,7 @@
 {
   "name": "figma-plugin-extract-images",
   "version": "1.0.0",
-  "description": "Collects all images on a file and saves them to a zip file",
+  "description": "A Figma Plugin to find all images on a file and extract the originals to a zip file",
   "main": "code.js",
   "scripts": {
     "build": "webpack",
