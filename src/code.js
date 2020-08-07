@@ -1,5 +1,3 @@
-const slugify = require('slugify');
-
 figma.ui.onmessage = (message) => {
   if (message.close) {
     figma.closePlugin();
@@ -31,7 +29,7 @@ const getAllImages = async () => {
 
   console.log('Found %s images...', allImages.length);
 
-  figma.showUI(__html__, { visible: false });
+  figma.showUI(__html__, { visible: true });
   figma.ui.postMessage({ filename: figma.root.name });
   for (let i = 0; i < allImages.length; i++) {
     const image = allImages[i];
