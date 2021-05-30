@@ -54,7 +54,7 @@ const getAllImages = async (mode) => {
   const images = [];
   for (let i = 0; i < allImages.length; i++) {
     figma.ui.postMessage({
-      status: `Processing ${images.length} of ${allImages.lenght} images...`,
+      status: `Processing ${images.length} of ${allImages.length} images...`,
     });
     const image = allImages[i];
     const data = figma.getImageByHash(image.hash);

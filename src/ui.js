@@ -93,7 +93,7 @@ const UI = () => {
         />
         <Type11Pos style={{ marginLeft: 48 }}>
           {keepPath
-            ? 'Files will be organized in folders by path.'
+            ? 'Files will be organized in folders by frame.'
             : 'Files will be placed in a single folder.'}
         </Type11Pos>
       </div>
