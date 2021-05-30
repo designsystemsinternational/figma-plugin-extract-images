@@ -1,2 +1,13 @@
 .root {
+  margin-top: 10px;
+}
+.title {
+  display: block;
+  margin: 10px 0;
+}
+.row {
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

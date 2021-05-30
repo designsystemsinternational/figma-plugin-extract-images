@@ -27,13 +27,17 @@ export const downloadZipFile = async (content, keepPath) => {
     const blob = await downloadZip(files).blob();
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `${content.filename} - images.zip`;
+    link.download = `${content.filename}.Images.${content.mode}.zip`;
     link.click();
     link.remove();
   }
 };
 
 export const useContent = () => {
+  const [running, setRunning] = useState(false);
+  const [status, setStatus] = useState('');
+  const [mode, setMode] = useState('Page');
+  const [selecting, setSelecting] = useState();
   const [filename, setFilename] = useState('figma');
   const [done, setDone] = useState(false);
   const [images, setImages] = useState([]);
@@ -41,14 +45,33 @@ export const useContent = () => {
     window.onmessage = async (event) => {
       const message = event.data.pluginMessage;
       if (!message) return;
-      if (message.filename) {
+      if (message.start) {
+        setRunning(true);
+      } else if (message.selection) {
+        setSelecting(message.selected > 0);
+      } else if (message.filename) {
         setFilename(message.filename);
-      } else if (message.image) {
-        setImages((images) => images.concat(message.image));
+      } else if (message.status) {
+        setStatus(message.status);
       } else if (message.done) {
+        setImages(message.images);
         setDone(true);
+        setStatus('');
+        setRunning(false);
       }
     };
   }, []);
-  return { filename, images, done };
+
+  return {
+    filename,
+    images,
+    running,
+    status,
+    done,
+    mode: selecting ? 'Selection' : mode,
+    setMode: (m) => {
+      setSelecting(false);
+      setMode(m);
+    },
+  };
 };

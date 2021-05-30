@@ -1,5 +1,5 @@
 {
-  "name": "extract-images",
+  "name": "Image Extractor",
   "id": "873263752169421781",
   "api": "1.0.0",
   "main": "dist/code.js",
