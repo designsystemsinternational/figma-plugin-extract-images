@@ -10,7 +10,9 @@ I have used it to collect moodboard images, or gather the assets for a website.
 
 ## How to use
 
-This version has no options and has no UI. Just run the plugin and you will be prompted to download a zip file. Large files may take a while.
+The plugin will allow you to choose the current page, the whole document or the current selection. 
+
+Once you have found the images you can click save to get them in a zip file.
 
 ## Development
 
