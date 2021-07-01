@@ -8,6 +8,9 @@ This is useful when you need to use a document' images outside of figma and it's
 
 I have used it to collect moodboard images, or gather the assets for a website.
 
+![Screen Shot 2021-05-30 at 6 36 48 PM](https://user-images.githubusercontent.com/605285/124180010-9592e300-da81-11eb-95b9-b7aebaa3d5d2.png)
+
+
 ## How to use
 
 The plugin will allow you to choose the current page, the whole document or the current selection. 
