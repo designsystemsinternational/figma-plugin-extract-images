@@ -101,7 +101,6 @@ const UI = () => {
         <PrimaryButton disabled={!content.done} onClick={onDownloadFile}>
           Download Zip File
         </PrimaryButton>
-        <div style={{ marginTop: 10 }} />
       </div>
     </div>
   );
