@@ -37,7 +37,7 @@ const getAllImages = async (mode) => {
     );
   }
   const allImages = allRectanglesWithImages.reduce((acc, rect) => {
-    figma.ui.postMessage({ status: `Found ${acc.lenght} images...` });
+    figma.ui.postMessage({ status: `Found ${acc.length} images...` });
     let name = rect.name;
     return acc.concat(
       rect.fills.map((fill, i) => {
